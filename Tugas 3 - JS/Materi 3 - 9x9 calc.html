@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Kalkulator</h1>
+<p id="demo"></p>
+
+<input type="text" id="display">
+
+<p>
+<input type="button" value="1" onclick="Display('1')">
+<input type="button" value="2" onclick="Display('2')">
+<input type="button" value="3" onclick="Display('3')">
+<input type="button" value="4" onclick="Display('4')">
+<input type="button" value="5" onclick="Display('5')">
+<input type="button" value="6" onclick="Display('6')">
+<input type="button" value="7" onclick="Display('7')">
+<input type="button" value="8" onclick="Display('8')">
+<input type="button" value="9" onclick="Display('9')">
+</p>
+<input type="button" value="/" onclick="Display('/')">
+<input type="button" value="*" onclick="Display('*')">
+<input type="button" value="+" onclick="Display('+')">
+<input type="button" value="-" onclick="Display('-')">
+<input type="button" value="=" onclick="calculate()">
+<input type="button" value="Clear" onclick="clearDisplay()">
+
+<p>Hasil: <span id="result"></span></p>
+
+<script>
+function Display(value) {       
+   document.getElementById('display').value += value;
+}
+
+function clearDisplay(value) {       
+   document.getElementById('display').value = '';
+}
+ 
+function calculate(){
+const expression = document.getElementById('display').value;
+const result = eval(expression);
+document.getElementById('result').innerText = result;
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Kalkulator</h1>
+<p id="demo"></p>
+
+<input type="text" id="id1" value="13">
+<input type="text" id="id2" value="14">
+
+<input type="button" class="operator" value="/" onclick="calculate('/')">
+<input type="button" class="operator" value="*" onclick="calculate('*')">
+<input type="button" class="operator" value="+" onclick="calculate('+')">
+<input type="button" class="operator" value="-" onclick="calculate('-')">
+
+<p>Hasil: <span id="result"></span></p>
+
+<script>
+function calculate(operator){
+    const num1 = parseFloat(document.getElementById('id1').value);
+    const num2 = parseFloat(document.getElementById('id2').value);
+
+    switch (operator) {
+    case '/':
+       result = num1 / num2;
+    break;
+    case '*':
+       result = num1 * num2;
+    break;
+    case '+':
+       result = num1 + num2;
+    break;
+    case '-':
+       result = num1 - num2;
+    break;
+    default:
+     result = 'Operasi tidak valid';
+    break;
+    }
+    document.getElementById('result').textContent = result;
+}
+</script>
+
+</body>
+</html>
+
