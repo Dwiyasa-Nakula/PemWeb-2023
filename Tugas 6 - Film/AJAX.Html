@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>Meteo Surabaya Data</h2>
+  <div>Temperature: 
+    <div id="Temp">No Data</div> <!-- Add initial loading message -->
+  </div>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let obj = JSON.parse(this.responseText);
+      let temperature = obj.current_weather.temperature;
+      document.getElementById("Temp").innerHTML = temperature + "°C";
+    }
+  };
+  xhttp.open("GET", "https://api.open-meteo.com/v1/forecast?latitude=-7.250445&longitude=112.768845&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m");
+  xhttp.send();
+}
+
+</script>
+
+</body>
+</html>
